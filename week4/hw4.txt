@@ -1,0 +1,21 @@
+1. open the emacs hw4.txt.
+2. git checkout v3.0 -b quote
+3. ptach -p1<quote-3.0-patch.txt
+5. use git status to see what is change
+and emasc each change file C-x 4 a to write
+change log
+6. git commit -F Changelo
+7. git formatted-patch -1 --stdout>formatted-patch.txt
+8. since i dont have partner
+i download a new clone in different file
+git checkout v3.0 -b tmp
+git am < formatted-patch.txt
+./bootstrap
+./configure
+make
+make check
+9. $make distdir 
+after everything i cd diffutils-3.0.1-6d75
+use emacs to open ChangeLog . I could see
+what I make change is inside.
+

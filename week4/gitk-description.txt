@@ -1,0 +1,9 @@
+commit date
+commit author
+commit message
+local branch master
+current commit HEAD in yellow
+remote branch master on origin
+commit SHA number
+file changes in diff format
+files impacted by selected commit

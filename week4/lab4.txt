@@ -1,0 +1,38 @@
+1. first get the clone
+ $git clone git://git.savannah.gnu.org/diffutils.git
+2.$git log >git-log.txt
+3.$git tag >git-tags.txt
+4.$git log
+ type /maint:quote. to find out his number is 62ca21
+5.$git checkout v3.0
+6.$patch -p1<quote-patch.txt if it is not c file
+ type enter and type y
+7.it shows us what do we modified
+ when we apply the patch to v3.0
+8.9 then we use emacs to open the file is not .c file
+ and use C-x v u to revert and for the c file have to
+ check one by one use if is not a c.string we use C-c C-a
+ the c file left is 6 files
+ modified:   src/cmp.c
+ modified:   src/diff.c
+ modified:   src/diff3.c
+ modified:   src/dir.c
+ modified:   src/sdiff.c
+ modified:   src/util.c
+10. use emacs to open the src/diff.c.rej and src/diff3.c.rej
+ then we need to use emacs open src/diff.c and src/diff3.c to
+ change different
+11. need to use git clean -f to remove the all untracked file
+12. $git diff>quote-3.0-patch.txt  
+13. type ./bootstrap
+ ./configure
+ make
+ make check
+14. diff . - diff: cannot compare '-' to a directory
+ ./diff . - give us same output
+ and download the source code and compare to the latter one
+ use src/diff -pru diffutils-3.0
+ diffutils-3.0-patch >quote-3.0-test.txt
+15. then use diff quote-3.0-test.txt quote-3.0-patch.txt
+ they outout something. they are not the same
+ but it is not innocuous. because the order is different. 
