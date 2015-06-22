@@ -1,0 +1,29 @@
+1. download the file with wget
+and $./configure CFLAGS="-g"
+and $make
+the error is there is two
+same name function call futimens
+then I download the patch use wget
+and apply the patch
+$patch -p0<coreutils.diff
+and I make again
+then I use emacs to debug
+M-x gdb -i=mi ~/coreutils-with-bug/src/ls
+and put a break point at sort_files
+and run -lt $tmp
+each time type s to go into next step
+eventually I found out the function call
+timespec_cmp inside timespec.h make the compare
+I found out it may cause over flow becuase
+if one is negative number and one is positive number
+since we using subtraction it may cause over flow due
+to one is large postive and large nagative.
+so before the subtraction I make it to compare first
+if b.tv_sec >a.tv_sec then return -1
+if b.tv_sec >a.tv_sec then return 1
+if they are the same return a.tv_nsec-b.tv_nsec.
+if I make tmp inside the my home directory
+because it is 32 bit and SEANET is 64 bit
+then it will do the 0 extension there is
+why 1918 become 2054.
+
