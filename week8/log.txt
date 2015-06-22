@@ -1,0 +1,74 @@
+1)For the tr2b.c
+I use stdio.h stdlib.h and string.h
+first i count the length of two argv
+if they are not the same output error
+then
+I put everything into an arr[128]
+also a mark for this 128 number
+if they are have duplicate bytes
+I make it output error
+if they dont have
+I make first argv[1] as key in arr
+map to value from argv[2]
+then if they have match argv[1]
+will replace by argv[2]
+2)For the tr2u.c
+almost the same thing
+only thing need to change
+putchar and getchar change to read and write
+when we have error
+we need to use write(2,errormessage,length of errormessage)
+then I get a file contains at least 5,000,000bytes
+then I use strace to compare tr2b and tr2u
+I can see
+3)a)read(0, "lR6LHt9Pv97YAcyWu4H2ryn0TPkVD00e"..., 65536) = 65536
+write(1, "2jSLq18xbfXHh8pqDcQ385xb5vFe8a24"..., 65536) = 65536
+which is copy from one file to another for tr2b
+read(0, "P", 1)                         = 1
+write(1, "P", 1)                        = 1
+which is copy from one file to another for tr2u
+b)
+copy to my terminal
+write(1, "ibXpVzJ2TU1poERKJlaHsVqyMYAurnew"..., 502ibXpVzJ2TU1
+poERKJlaHsVqyMYAurnewQSKi9k93Ji9eKZeeYj5J13ZVVwzD4XG5JWymeK1QX
+A2SBxN0IlFuYXJFmnSGs7QMuTTDoVMJx1X2rRvshowoFAoCXgzTiQTW2J2v8BR
+wF945etnOfzHoPJXSUcVh2z2wOaBRMgpReIs2oCOv53VzOH5TDj53DHrYQ3Bij
+xx3g0jwYyXw74f67kUIZpYp8q8jo6yzGLzQMkxaaUleshOqcaTAJrpk0IovBO0
+x4RJDUJrf1lQlwgYtq1bI5FrXmCg3xBc1EpVW46MkkqS9BrDwpz1lSk6XvQkXt
+l38pWX4Em3zUSJ5L3IWApv2uAefTtMFh1iRjGI2LRYV6WjjWA7tRiziuBzX90J
+CgGWINiWGhpbLr02OkaJqMzcebTeDtJIH9z5NiX1cbYpGzz1FWxLyGTWID4hJ3
+9telEI9cO4La9xCAnrrD3jLleAHNzEfaR3YjhYa4tlqlAj8oQhZ30ap) = 502
+this is for tr2b
+read(0, "f", 1)                         = 1
+write(1, "f", 1f)                        = 1
+this is for tr2u
+4)$time ./tr2b a a <test.txt >testb.txt
+
+real    0m0.175s
+user    0m0.093s
+sys     0m0.007s
+
+this is for copy to file
+$time ./tr2u a a <test.txt >testb.txt
+
+real    0m5.319s
+user    0m0.257s
+sys     0m4.991s
+copy to termial
+$time ./tr2b a a <test.txt
+real    0m1.003s
+user    0m0.124s
+sys     0m0.042s
+$time ./tr2u a a <test.txt
+real    0m6.173s
+user    0m0.228s
+sys     0m5.943s
+As we can see
+copy to file is much faster
+also use tr2b is faster than tr2u
+because we use buffer each time make system call
+for every 65536 bytes
+in each case output to termial is slower than
+out put to file.
+
+

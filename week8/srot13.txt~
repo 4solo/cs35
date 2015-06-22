@@ -1,0 +1,14 @@
+for the srot13 comparisons is same as srot13u
+but the srot13u is slower than srot13
+the srot13u user time is faster than srot13
+but sys time is lower than srot13
+this is srot13
+total com is 11802
+real 0m0.005s
+user 0m0.002s
+sys  0m0.001s
+this is srot13u
+total com is 11802
+real 0m0.012s
+user 0m0.001s
+sys  0m0.008s

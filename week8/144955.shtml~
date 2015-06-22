@@ -1,0 +1,363 @@
+﻿
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" src="/Scripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.cookie.js"></script>
+    
+    <meta name="keywords" content="常用英语单词大全" />
+    <meta name="description" content="常用英语单词大全：列出了最常用的英语单词约3000个，并加以分类和使用频率排序。共分为1)General Words 常用英语单词之常用一般词汇2284个，2)Basic Words 常用英语单词之基础词汇200个，3)General Adjectives 常用英语单词之常用形容词150个，4)General Nouns 常用英语单词之常用名词200个。" />
+    <link rel="Stylesheet" type="text/css" href="/Styles/ReciteWeb/articles.css" />
+    <script type="text/javascript">
+        function ToTop() {
+            $("html, body").animate({ scrollTop: 0 }, 120);
+        }
+    </script>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon-precomposed" href="/favicon.png" /><meta name="msapplication-task" content="name=能飞背单词;action-uri=/Default.aspx;icon-uri=/favicon.ico" /><meta name="msapplication-task" content="name=小学背单词;action-uri=/children/index.aspx;icon-uri=/Styles/WebImage/child/child.ico" /><meta name="msapplication-task" content="name=能飞词典;action-uri=/w/index.aspx;icon-uri=/Styles/WebImage/w/dict.ico" /><meta name="msapplication-task" content="name=产品介绍;action-uri=/descrip/intro.aspx;icon-uri=/Styles/WebImage/descrip/product.ico" /><meta name="msapplication-task" content="name=支付中心;action-uri=/pay/pay_center.aspx;icon-uri=/Styles/WebImage/pay/pay.ico" /><meta name="author" content="最好的背单词软件-能飞背单词" /><meta name="copyright" content="佛山市能飞网络科技有限公司" /><title>
+	常用英语单词大全
+</title><link rel="Stylesheet" type="text/css" href="/Styles/ReciteWeb/Web.css" />
+    <script type="text/javascript">
+        function ClickWebLoginButton() {
+            window.location = "/login/login2.aspx?url=" + encodeURIComponent(window.location.href);
+        }
+
+        function ClickWebSignoutButton() {
+            $.cookie("CookieUserName", "", { expires: 0, path: '/' });
+            WebUserName.style.display = "none";
+            WebLoginButton.style.display = "block";
+            WebSignoutButton.style.display = "none";
+        }
+
+        function ClickCloseStudy() {
+            master_study.style.display = "none";
+            $.cookie("CookieStudyCourse", "", { expires: 0, path: '/' });
+        }
+
+        function ClickChildButton() {
+            var course = $.cookie("CookieChildCourse");
+            if (course == null || course.length == 0) {
+                window.location = "/children/index.aspx";
+            }
+            else {
+                var pos = course.indexOf(";");
+                var id = course.substr(0, pos);
+                window.location = "/child.aspx?CourseID=" + id;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="master_study" style="display: none;">
+        <div id="master_study_course">
+        </div>
+        <div class="master_study_begin">
+            <a id="master_begin_study" href="#">马上学习&gt;&gt;</a>
+        </div>
+        <div onclick="ClickCloseStudy();" style="float: right; color: #ff0000; font-size: 16px; padding: 3px 10px 0px 0px; cursor: pointer;">
+            X
+        </div>
+    </div>
+    <script type="text/javascript">
+        var study = $.cookie("CookieStudyCourse");
+        if (study == null || study.length == 0) {
+            master_study.style.display = "none";
+        }
+        else {
+            var pos = study.indexOf(";");
+            var CourseName = decodeURIComponent(study.substr(0, pos));
+            var StudyPath = study.substr(pos + 1);
+            master_study.style.display = "block";
+            master_study_course.innerHTML = CourseName;
+            master_begin_study.href = StudyPath;
+        }
+    </script>
+    <div id="master_header">
+        <img id="master_logo_img" src="/Styles/WebImage/Web/logo.png" alt="能飞背单词" />
+        <div id="master_recite_btn">
+            <a href="/Default.aspx" title="中高考、四六级、英语考级等使用"></a>
+        </div>
+        <div id="master_child_btn">
+            <a href="javascript:ClickChildButton();" title="专为小学课程设计"></a>
+        </div>
+    </div>
+    <div id="master_nav">
+        <div class="master_menu_button">
+            <a href="/index.aspx">首页</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/descrip/intro.aspx">产品介绍</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/descrip/course.aspx">词汇课程</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/app/index.aspx">单词应用</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/w/index.aspx">能飞词典</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/pay/pay_center.aspx">支付中心</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/qna/qna.aspx">常见问题</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="/thought.aspx">意见反馈</a>
+        </div>
+        <div class="master_menu_button">
+            <a href="http://www.qimiaow.com/">奇喵网</a>
+        </div>
+    </div>
+    <div id="head_navigate">
+        <div class="navigate_item">
+            当前位置：
+        </div>
+        <div class="navigate_item">
+            <span id="SiteMapPath1"><a href="#SiteMapPath1_SkipLink"><img alt="Skip Navigation Links" height="0" width="0" src="/WebResource.axd?d=FjsGouyfTctsYdQxkkrYfmzwj_5gelzqRbkO5wryx4wktj1riGgImMUcFVU-jlX4s-VzDJc7lK3Dxv1svLL9dXw4yXPeUxU4zpxqu84w6v01&amp;t=634619006781128303" style="border-width:0px;" /></a><span><a title="首页" href="/index.aspx">首页</a></span><span> &gt; </span><span><a title="词汇方法" href="/m">词汇方法</a></span><span> &gt; </span><span><a title="提高词汇量方法列表" href="/m/a_l2_1">提高词汇量方法列表</a></span><span> &gt; </span><span>常用英语单词大全</span><a id="SiteMapPath1_SkipLink"></a></span>
+        </div>
+        <div class="navigate_username">
+            <span id="WebUserName"></span><span id="WebLoginButton" style="display: none;">&nbsp;&nbsp;<a
+                href="javascript:ClickWebLoginButton();">登录</a></span> <span id="WebSignoutButton">&nbsp;&nbsp;<a
+                    href="javascript:ClickWebSignoutButton();">退出</a></span>
+        </div>
+        <script type="text/javascript">
+            var username = $.cookie("CookieUserName");
+            if (username != null && username.length != 0) {
+                WebUserName.innerHTML = "欢迎您，" + username;
+                WebUserName.style.display = "block";
+                WebSignoutButton.style.display = "block";
+            }
+            else {
+                WebUserName.style.display = "none";
+                WebSignoutButton.style.display = "none";
+            }
+        </script>
+    </div>
+    <div id="master_page">
+        
+    <div id="content">
+        <div id="left_region">
+            <div class="left_region_block">
+                <div class="left_head_title_mid">
+                    常用英语单词大全
+                </div>
+                <div id="article_publish_info">
+                    编辑：langfly&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布：能飞背单词&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间：2015/2/24
+                </div>
+                <a href="http://www.langfly.com/productintroduce.shtml" target="_blank" style="width: 708px; height: 191px; display: block; margin-bottom: 20px;">
+                    <img src="/Styles/WebImage/article/ad20140401.jpg" alt="" /></a>
+                <div id="template_main">
+                    <p>&nbsp;&nbsp;&nbsp; 常用英语单词大全：列出了最常用的英语单词约3000个，并加以分类和使用频率排序。共分为1)General Words 常用英语单词之常用一般词汇2284个，2)Basic Words 常用英语单词之基础词汇200个，3)General Adjectives 常用英语单词之常用形容词150个，4)General Nouns 常用英语单词之常用名词200个。</p>
+<p>&nbsp;&nbsp;&nbsp; 若您希望快速记忆这些词汇，可以进入能飞背单词系统（点击进入 <a href="http://word.langfly.com">http://word.langfly.com</a>），能飞背单词会自动加入词根词缀、联想、谐音、图片、真人发音等记忆辅助元素，高效地在线背单词。另外，能飞英语背单词系统中，已有现成的词库&ldquo;牛津英语常用词3000&rdquo;。</p>
+<p><br />1)General Words<br />常用英语单词之常用一般词汇<br />1 the<br />2 be<br />3 of<br />4 and<br />5 a<br />6 to<br />7 in<br />8 he<br />9 have<br />10 it<br />11 that<br />12 for<br />13 they<br />14 I<br />15 with<br />16 as<br />17 not<br />18 on<br />19 she<br />20 at<br />21 by<br />22 this<br />23 we<br />24 you<br />25 do<br />26 but<br />27 from<br />28 or<br />29 which<br />30 one<br />31 would<br />32 all<br />33 will<br />34 there<br />35 say<br />36 who<br />37 make<br />38 when<br />39 can<br />40 more<br />41 if<br />42 no<br />43 man<br />44 out<br />45 other<br />46 so<br />47 what<br />48 time<br />49 up<br />50 go<br />51 about<br />52 than<br />53 into<br />54 could<br />55 state<br />56 only<br />57 new<br />58 year<br />59 some<br />60 take<br />61 come<br />62 these<br />63 know<br />64 see<br />65 use<br />66 get<br />67 like<br />68 then<br />69 first<br />70 any<br />71 work<br />72 now<br />73 may<br />74 such<br />75 give<br />76 over<br />77 think<br />78 most<br />79 even<br />80 find<br />81 day<br />82 also<br />83 after<br />84 way<br />85 many<br />86 must<br />87 look<br />88 before<br />89 great<br />90 7 back<br />91 through<br />92 long<br />93 where<br />94 much<br />95 should<br />96 well<br />97 people<br />98 down<br />99 own<br />100 just<br />101 because<br />102 good<br />103 each<br />104 those<br />105 feel<br />106 seem<br />107 how<br />108 high<br />109 too<br />110 place<br />111 little<br />112 world<br />113 very<br />114 still<br />115 nation<br />116 hand<br />117 old<br />118 life<br />119 tell<br />120 write<br />121 become<br />122 here<br />123 show<br />124 house<br />125 both<br />126 between<br />127 need<br />128 mean<br />129 call<br />130 develop<br />131 under<br />132 last<br />133 right<br />134 move<br />135 thing<br />136 general<br />137 school<br />138 never<br />139 same<br />140 another<br />141 begin<br />142 while<br />143 number<br />144 part<br />145 turn<br />146 real<br />147 leave<br />148 might<br />149 want<br />150 point<br />151 form<br />152 off<br />153 child<br />154 few<br />155 small<br />156 since<br />157 against<br />158 ask<br />159 late<br />160 home<br />161 interest<br />162 large<br />163 person<br />164 end<br />165 open<br />166 public<br />167 follow<br />168 during<br />169 present<br />170 without<br />171 again<br />172 hold<br />173 govern<br />174 around<br />175 possible<br />176 head<br />177 consider<br />178 word<br />179 program<br />180 problem<br />181 however<br />182 lead<br />183 system<br />184 set<br />185 order<br />186 eye<br />187 plan<br />188 run<br />189 keep<br />190 face<br />191 fact<br />192 group<br />193 play<br />194 stand<br />195 increase<br />196 early<br />197 course<br />198 change<br />199 help<br />200 line<br />201 city<br />202 put<br />203 close<br />204 case<br />205 force<br />206 meet<br />207 once<br />208 water<br />209 upon<br />210 war<br />211 build<br />212 hear<br />213 light<br />214 unite<br />215 live<br />216 every<br />217 country<br />218 bring<br />219 center<br />220 let<br />221 side<br />222 try<br />223 provide<br />224 continue<br />225 name<br />226 certain<br />227 power<br />228 pay<br />229 result<br />230 question<br />231 study<br />232 woman<br />233 member<br />234 until<br />235 far<br />236 night<br />237 always<br />238 service<br />239 away<br />240 report<br />241 something<br />242 company<br />243 week<br />244 church<br />245 toward<br />246 start<br />247 social<br />248 room<br />249 figure<br />250 nature<br />251 though<br />252 young<br />253 less<br />254 enough<br />255 almost<br />256 read<br />257 include<br />258 president<br />259 nothing<br />260 yet<br />261 better<br />262 big<br />263 boy<br />264 cost<br />265 business<br />266 value<br />267 second<br />268 why<br />269 clear<br />270 expect<br />271 family<br />272 complete<br />273 act<br />274 sense<br />275 mind<br />276 experience<br />277 art<br />278 next<br />279 near<br />280 direct<br />281 car<br />282 law<br />283 industry<br />284 important<br />285 girl<br />286 god<br />287 several<br />288 matter<br />289 usual<br />290 rather<br />291 per<br />292 often<br />293 kind<br />294 among<br />295 white<br />296 reason<br />297 action<br />298 return<br />299 foot<br />300 care<br />301 simple<br />302 within<br />303 love<br />304 human<br />305 along<br />306 appear<br />307 doctor<br />308 believe<br />309 speak<br />310 active<br />311 student<br />312 month<br />313 drive<br />314 concern<br />315 best<br />316 door<br />317 hope<br />318 example<br />319 inform<br />320 body<br />321 ever<br />322 least<br />323 probable<br />324 understand<br />325 reach<br />326 effect<br />327 different<br />328 idea<br />329 whole<br />330 control<br />331 condition<br />332 field<br />333 pass<br />334 fall<br />335 note<br />336 special<br />337 talk<br />338 particular<br />339 today<br />340 measure<br />341 walk<br />342 teach<br />343 low<br />344 hour<br />345 type<br />346 carry<br />347 rate<br />348 remain<br />349 full<br />350 street<br />351 easy<br />352 although<br />353 record<br />354 sit<br />355 determine<br />356 level<br />357 local<br />358 sure<br />359 receive<br />360 thus<br />361 moment<br />362 spirit<br />363 train<br />364 college<br />365 religion<br />366 perhaps<br />367 music<br />368 grow<br />369 free<br />370 cause<br />371 serve<br />372 age<br />373 book<br />374 board<br />375 recent<br />376 sound<br />377 office<br />378 cut<br />379 step<br />380 class<br />381 true<br />382 history<br />383 position<br />384 above<br />385 strong<br />386 friend<br />387 necessary<br />388 add<br />389 court<br />390 deal<br />391 tax<br />392 support<br />393 party<br />394 whether<br />395 either<br />396 land<br />397 material<br />398 happen<br />399 education<br />400 death<br />401 agree<br />402 arm<br />403 mother<br />404 across<br />405 quite<br />406 anything<br />407 town<br />408 past<br />409 view<br />410 society<br />411 manage<br />412 answer<br />413 break<br />414 organize<br />415 half<br />416 fire<br />417 lose<br />418 money<br />419 stop<br />420 actual<br />421 already<br />422 effort<br />423 wait<br />424 department<br />425 able<br />426 political<br />427 learn<br />428 voice<br />429 air<br />430 together<br />431 shall<br />432 cover<br />433 common<br />434 subject<br />435 draw<br />436 short<br />437 wife<br />438 treat<br />439 limit<br />440 road<br />441 letter<br />442 color<br />443 behind<br />444 produce<br />445 send<br />446 term<br />447 total<br />448 university<br />449 rise<br />450 century<br />451 success<br />452 minute<br />453 remember<br />454 purpose<br />455 test<br />456 fight<br />457 watch<br />458 situation<br />459 south<br />460 ago<br />461 difference<br />462 stage<br />463 father<br />464 table<br />465 rest<br />466 bear<br />467 entire<br />468 market<br />469 prepare<br />470 explain<br />471 offer<br />472 plant<br />473 charge<br />474 ground<br />475 west<br />476 picture<br />477 hard<br />478 front<br />479 lie<br />480 modern<br />481 dark<br />482 surface<br />483 rule<br />484 regard<br />485 dance<br />486 peace<br />487 observe<br />488 future<br />489 wall<br />490 farm<br />491 claim<br />492 firm<br />493 operation<br />494 further<br />495 pressure<br />496 property<br />497 morning<br />498 amount<br />499 top<br />500 outside<br />501 piece<br />502 sometimes<br />503 beauty<br />504 trade<br />505 fear<br />506 demand<br />507 wonder<br />508 list<br />509 accept<br />510 judge<br />511 paint<br />512 mile<br />513 soon<br />514 responsible<br />515 allow<br />516 secretary<br />517 heart<br />518 union<br />519 slow<br />520 island<br />521 enter<br />522 drink<br />523 story<br />524 experiment<br />525 stay<br />526 paper<br />527 space<br />528 apply<br />529 decide<br />530 share<br />531 desire<br />532 spend<br />533 sign<br />534 therefore<br />535 various<br />536 visit<br />537 supply<br />538 officer<br />539 doubt<br />540 private<br />541 immediate<br />542 wish<br />543 contain<br />544 feed<br />545 raise<br />546 describe<br />547 ready<br />548 horse<br />549 son<br />550 exist<br />551 north<br />552 suggest<br />553 station<br />554 effective<br />555 food<br />556 deep<br />557 wide<br />558 alone<br />559 character<br />560 English<br />561 happy<br />562 critic<br />563 unit<br />564 product<br />565 respect<br />566 drop<br />567 nor<br />568 fill<br />569 cold<br />570 represent<br />571 sudden 572 basic<br />573 kill<br />574 fine<br />575 trouble<br />576 mark<br />577 single<br />578 press<br />579 heavy<br />580 attempt<br />581 origin<br />582 standard<br />583 everything<br />584 committee<br />585 moral<br />586 black<br />587 red<br />588 bad<br />589 earth<br />590 accord<br />591 else<br />592 mere<br />593 die<br />594 remark<br />595 basis<br />596 except<br />597 equal<br />598 east<br />599 event<br />600 employ<br />601 defense<br />602 smile<br />603 river<br />604 improve<br />605 game<br />606 detail<br />607 account<br />608 cent<br />609 sort<br />610 reduce<br />611 club<br />612 buy<br />613 attention<br />614 ship<br />615 decision<br />616 wear<br />617 inside<br />618 win<br />619 suppose<br />620 ride<br />621 operate<br />622 realize<br />623 sale<br />624 choose<br />625 park<br />626 square<br />627 vote<br />628 price<br />629 district<br />630 dead<br />631 foreign<br />632 window<br />633 beyond<br />634 direction<br />635 strike<br />636 instead<br />637 trial<br />638 practice<br />639 catch<br />640 opportunity<br />641 likely<br />642 recognize<br />643 permit<br />644 serious<br />645 attack<br />646 floor<br />647 association<br />648 spring<br />649 lot<br />650 stock<br />651 lack<br />652 hair<br />653 science<br />654 relation<br />655 profession<br />656 pattern<br />657 quick<br />658 medical<br />659 influence<br />660 occasion<br />661 machine<br />662 compare<br />663 husband<br />664 blue<br />665 international<br />666 fair<br />667 especially<br />668 indeed<br />669 imagine<br />670 surprise<br />671 average<br />672 official<br />673 temperature<br />674 difficult<br />675 sing<br />676 hit<br />677 tree<br />678 race<br />679 police<br />680 touch<br />681 relative<br />682 throw<br />683 quality<br />684 former<br />685 pull<br />686 chance<br />687 prove<br />688 argue<br />689 settle<br />690 growth<br />691 date<br />692 heat<br />693 save<br />694 performance<br />695 count<br />696 production<br />697 listen<br />698 main<br />699 pick<br />700 size<br />701 cool<br />702 army<br />703 patient<br />704 combine<br />705 summer<br />706 hall<br />707 slight<br />708 command<br />709 enjoy<br />710 length<br />711 proper<br />712 express<br />713 health<br />714 chief<br />715 evening<br />716 store<br />717 language<br />718 degree<br />719 lay<br />720 current<br />721 gun<br />722 dog<br />723 hotel<br />724 strange<br />725 separate<br />726 boat<br />727 fail<br />728 clean<br />729 dress<br />730 anyone<br />731 gain<br />732 pain<br />733 object<br />734 knowledge<br />735 depend<br />736 relate<br />737 below<br />738 dollar<br />739 advance<br />740 shape<br />741 arrange<br />742 population<br />743 yes<br />744 sell<br />745 mention<br />746 dry<br />747 check<br />748 poet<br />749 sleep<br />750 join<br />751 hot<br />752 bed<br />753 electric<br />754 dream<br />755 due<br />756 season<br />757 manner<br />758 fit<br />759 left<br />760 progress<br />761 neither<br />762 strength<br />763 notice<br />764 finish<br />765 opinion<br />766 bill<br />767 western<br />768 truth<br />769 wrong<br />770 travel<br />771 suit<br />772 bank<br />773 exact<br />774 honor<br />775 brother<br />776 quiet<br />777 marry<br />778 corner<br />779 handle<br />780 danger<br />781 hospital<br />782 pool<br />783 promise<br />784 blood<br />785 shoot<br />786 scene<br />787 literature<br />788 arrive<br />789 film<br />790 base<br />791 freedom<br />792 bar<br />793 maybe<br />794 hang<br />795 suffer<br />796 manufacture<br />797 frequent<br />798 rock<br />799 loss<br />800 burn<br />801 sun<br />802 audience<br />803 essential<br />804 glass<br />805 prevent<br />806 poem<br />807 poor<br />808 inch<br />809 song<br />810 skill<br />811 post<br />812 popular<br />813 radio<br />814 animal<br />815 conscious<br />816 worth<br />817 eat<br />818 election<br />819 faith<br />820 wave<br />821 murder<br />822 model<br />823 forget<br />824 extend<br />825 edge<br />826 distance<br />827 memory<br />828 recommend<br />829 division<br />830 staff<br />831 leg<br />832 discussion<br />833 address<br />834 fly<br />835 dependent<br />836 ball<br />837 shake<br />838 frame<br />839 extreme<br />840 engineer<br />841 thick<br />842 comfort<br />843 latter<br />844 camp<br />845 oil<br />846 discover<br />847 examine<br />848 difficulty<br />849 tooth<br />850 middle<br />851 choice<br />852 refer<br />853 enemy<br />854 practical<br />855 marriage<br />856 bridge<br />857 declare<br />858 lady<br />859 cross<br />860 daily<br />861 afternoon<br />862 attend<br />863 director<br />864 balance<br />865 wash<br />866 capital<br />867 speed<br />868 block<br />869 citizen<br />870 mouth<br />871 hill<br />872 green<br />873 please<br />874 motor<br />875 agency<br />876 encourage<br />877 governor<br />878 worry<br />879 affair<br />880 shoulder<br />881 bright<br />882 mass<br />883 sample<br />884 pretty<br />885 repeat<br />886 roll<br />887 push<br />888 trip<br />889 council<br />890 clothe<br />891 parent<br />892 forward<br />893 sharp<br />894 straight<br />895 gas<br />896 weight<br />897 discuss<br />898 fix<br />899 load<br />900 master<br />901 whatever<br />902 round<br />903 rapid<br />904 laugh<br />905 finger<br />906 spot<br />907 propose<br />908 shop<br />909 broad<br />910 replace<br />911 reply<br />912 extent<br />913 lock<br />914 employee<br />915 ahead<br />916 sight<br />917 spread<br />918 wind<br />919 approve<br />920 destroy<br />921 none<br />922 pound<br />923 fame<br />924 importance<br />925 reflect<br />926 advantage<br />927 match<br />928 regular<br />929 wage<br />930 refuse<br />931 existence<br />932 hardly<br />933 perform<br />934 title<br />935 tend<br />936 exercise<br />937 thin<br />938 coat<br />939 bit<br />940 mountain<br />941 youth<br />942 behavior<br />943 newspaper<br />944 secret<br />945 ability<br />946 sea<br />947 soft<br />948 justice<br />949 reasonable<br />950 circle<br />951 solid<br />952 page<br />953 weapon<br />954 fast<br />955 representative<br />956 search<br />957 pure<br />958 escape<br />959 crowd<br />960 stick<br />961 telephone<br />962 avoid<br />963 garden<br />964 favor<br />965 news<br />966 unless<br />967 dinner<br />968 someone<br />969 100 signal<br />970 yard<br />971 ideal<br />972 warm<br />973 miss<br />974 shelter<br />975 soldier<br />976 article<br />977 cry<br />978 captain<br />979 familiar<br />980 seat<br />981 guest<br />982 weak<br />983 excite<br />984 king<br />985 everyone<br />986 wine<br />987 hole<br />988 duty<br />989 beat<br />990 perfect<br />991 bottom<br />992 compose<br />993 battle<br />994 expense<br />995 cattle<br />996 flow<br />997 kitchen<br />998 dust<br />999 bottle<br />1000 admit<br />1001 tear<br />1002 tire<br />1003 expression<br />1004 exception<br />1005 application<br />1006 belong<br />1007 rich<br />1008 failure<br />1009 struggle<br />1010 instrument<br />1011 variety<br />1012 narrow<br />1013 theater<br />1014 collection<br />1015 rain<br />1016 review<br />1017 preserve<br />1018 leadership<br />1019 clay<br />1020 daughter<br />1021 fellow<br />1022 swing<br />1023 thank<br />1024 library<br />1025 fat<br />1026 reserve<br />1027 tour<br />1028 nice<br />1029 warn<br />1030 ring<br />1031 bitter<br />1032 chair<br />1033 yesterday<br />1034 scientific<br />1035 flower<br />1036 wheel<br />1037 solution<br />1038 aim<br />1039 gather<br />1040 invite<br />1041 moreover<br />1042 fresh<br />1043 forest<br />1044 winter<br />1045 box<br />1046 belief<br />1047 ordinary<br />1048 impossible<br />1049 print<br />1050 gray<br />1051 taste<br />1052 lip<br />1053 speech<br />1054 reference<br />1055 stain<br />1056 connection<br />1057 otherwise<br />1058 stretch<br />1059 knife<br />1060 village<br />1061 blow<br />1062 mistake<br />1063 sweet<br />1064 shout<br />1065 divide<br />1066 guard<br />1067 worse<br />1068 exchange<br />1069 rare<br />1070 commercial<br />1071 request<br />1072 appoint<br />1073 agent<br />1074 dependence<br />1075 bird<br />1076 wild<br />1077 motion<br />1078 guess<br />1079 neighbor<br />1080 seed<br />1081 fashion<br />1082 loan<br />1083 correct<br />1084 plain<br />1085 mail<br />1086 retire<br />1087 opposite<br />1088 prefer<br />1089 safe<br />1090 evil<br />1091 double<br />1092 wood<br />1093 empty<br />1094 baby<br />1095 advise<br />1096 content<br />1097 sport<br />1098 lift<br />1099 literary<br />1100 curious<br />1101 tie<br />1102 flat<br />1103 message<br />1104 neck<br />1105 hate<br />1106 dirt<br />1107 delight<br />1108 trust<br />1109 nobody<br />1110 valley<br />1111 tool<br />1112 presence<br />1113 cook<br />1114 railroad<br />1115 minister<br />1116 coffee<br />1117 brush<br />1118 beside<br />1119 collect<br />1120 guide<br />1121 luck<br />1122 profit<br />1123 lord<br />1124 everybody<br />1125 prison<br />1126 cloud<br />1127 slave<br />1128 chairman<br />1129 soil<br />1130 distinguish<br />1131 introduce<br />1132 urge<br />1133 blind<br />1134 arise<br />1135 upper<br />1136 curve<br />1137 membership<br />1138 key<br />1139 entertain<br />1140 soul<br />1141 neighborhood<br />1142 friendly 1143 pair<br />1144 stone<br />1145 lean<br />1146 protect<br />1147 advertise<br />1148 mystery<br />1149 welcome<br />1150 knee<br />1151 jump<br />1152 snake<br />1153 stream<br />1154 avenue<br />1155 brown<br />1156 disease<br />1157 hat<br />1158 excellent<br />1159 formal<br />1160 snow<br />1161 sheet<br />1162 somehow<br />1163 unity<br />1164 sky<br />1165 rough<br />1166 smooth<br />1167 weather<br />1168 steady<br />1169 threaten<br />1170 depth<br />1171 oppose<br />1172 deliver<br />1173 ancient<br />1174 pray<br />1175 adopt<br />1176 birth<br />1177 appearance<br />1178 universe<br />1179 busy<br />1180 hurry<br />1181 coast<br />1182 forth<br />1183 smell<br />1184 furnish<br />1185 female<br />1186 hide<br />1187 wire<br />1188 proposal<br />1189 ought<br />1190 victory<br />1191 quarter<br />1192 engine<br />1193 customer<br />1194 waste<br />1195 fool<br />1196 intend<br />1197 intention<br />1198 desk<br />1199 politics<br />1200 passage<br />1201 lawyer<br />1202 root<br />1203 climb<br />1204 metal<br />1205 gradual<br />1206 hunt<br />1207 protection<br />1208 satisfy<br />1209 roof<br />1210 branch<br />1211 pleasure<br />1212 witness<br />1213 loose<br />1214 nose<br />1215 mine<br />1216 band<br />1217 aside<br />1218 risk<br />1219 tomorrow<br />1220 remind<br />1221 ear<br />1222 fish<br />1223 shore<br />1224 operator<br />1225 civilize<br />1226 being<br />1227 silent<br />1228 screen<br />1229 bind<br />1230 earn<br />1231 pack<br />1232 colony<br />1233 besides<br />1234 slip<br />1235 cousin<br />1236 scale<br />1237 relief<br />1238 explore<br />1239 stem<br />1240 brain<br />1241 musician<br />1242 defend<br />1243 bend<br />1244 somebody<br />1245 shadow<br />1246 mix<br />1247 smoke<br />1248 description<br />1249 fruit<br />1250 guilt<br />1251 yield<br />1252 sensitive<br />1253 salt<br />1254 pale<br />1255 sweep<br />1256 completion<br />1257 throat<br />1258 agriculture<br />1259 admire<br />1260 gentle<br />1261 dozen<br />1262 particle<br />1263 pleasant<br />1264 bay<br />1265 cup<br />1266 competition<br />1267 moon<br />1268 terrible<br />1269 strip<br />1270 mechanic<br />1271 shock<br />1272 conversation<br />1273 angle<br />1274 tall<br />1275 plenty<br />1276 star<br />1277 yellow<br />1278 sick<br />1279 thorough<br />1280 absolute<br />1281 succeed<br />1282 surround<br />1283 proud<br />1284 dear<br />1285 card<br />1286 lake<br />1287 breath<br />1288 afraid<br />1289 silence<br />1290 onto<br />1291 shoe<br />1292 somewhere<br />1293 chain<br />1294 slide<br />1295 copy<br />1296 machinery<br />1297 wake<br />1298 severe<br />1299 pocket<br />1300 bone<br />1301 honest<br />1302 freeze<br />1303 dictionary<br />1304 calm<br />1305 swim<br />1306 ice<br />1307 male<br />1308 skin<br />1309 crack<br />1310 rush<br />1311 wet<br />1312 meat<br />1313 commerce<br />1314 joint<br />1315 gift<br />1316 host<br />1317 suspect<br />1318 path<br />1319 uncle<br />1320 afford<br />1321 instant<br />1322 satisfactory<br />1323 height<br />1324 track<br />1325 confidence<br />1326 grass<br />1327 suggestion<br />1328 favorite<br />1329 breakfast<br />1330 apart<br />1331 chest<br />1332 entrance<br />1333 march<br />1334 sink<br />1335 northern<br />1336 iron<br />1337 alive<br />1338 ill<br />1339 bag<br />1340 disturb<br />1341 native<br />1342 bedroom<br />1343 violent<br />1344 beneath<br />1345 pause<br />1346 tough<br />1347 substance<br />1348 threat<br />1349 charm<br />1350 absence<br />1351 factory<br />1352 spite<br />1353 meal<br />1354 universal<br />1355 accident<br />1356 highway<br />1357 sentence<br />1358 liberty<br />1359 wise<br />1360 noise<br />1361 discovery<br />1362 tube<br />1363 flash<br />1364 twist<br />1365 fence<br />1366 childhood<br />1367 joy<br />1368 sister<br />1369 sad<br />1370 efficiency<br />1371 disappear<br />1372 defeat<br />1373 extensive<br />1374 rent<br />1375 comparison<br />1376 possess<br />1377 grace<br />1378 flesh<br />1379 liquid<br />1380 scientist<br />1381 ease<br />1382 heaven<br />1383 milk<br />1384 sympathy<br />1385 rank<br />1386 restaurant<br />1387 frequency<br />1388 angry<br />1389 shade<br />1390 accuse<br />1391 necessity<br />1392 knock<br />1393 loud<br />1394 permanent<br />1395 row<br />1396 lovely<br />1397 confuse<br />1398 gold<br />1399 frighten<br />1400 solve<br />1401 grave<br />1402 salary<br />1403 photograph<br />1404 advice<br />1405 abroad<br />1406 wound<br />1407 virtue<br />1408 dare<br />1409 queen<br />1410 extra<br />1411 attract<br />1412 numerous<br />1413 pink<br />1414 gate<br />1415 expensive<br />1416 shut<br />1417 chicken<br />1418 forgive<br />1419 holy<br />1420 wooden<br />1421 prompt<br />1422 crime<br />1423 sorry<br />1424 republic<br />1425 anger<br />1426 visitor<br />1427 pile<br />1428 violence<br />1429 steel<br />1430 wing<br />1431 stair<br />1432 partner<br />1433 delay<br />1434 gentleman<br />1435 pour<br />1436 confusion<br />1437 damage<br />1438 kick<br />1439 safety<br />1440 burst<br />1441 network<br />1442 resistance<br />1443 screw<br />1444 pride<br />1445 till<br />1446 hire<br />1447 verb<br />1448 preach<br />1449 clerk<br />1450 everywhere<br />1451 anyway<br />1452 fan<br />1453 connect<br />1454 egg<br />1455 efficient<br />1456 grain<br />1457 calculate<br />1458 drag<br />1459 opposition<br />1460 worship<br />1461 arrest<br />1462 discipline<br />1463 string<br />1464 harbor<br />1465 camera<br />1466 mechanism<br />1467 cow<br />1468 grand<br />1469 funny<br />1470 insurance<br />1471 reduction<br />1472 strict<br />1473 lesson<br />1474 tight<br />1475 sand<br />1476 plate<br />1477 qualify<br />1478 elsewhere<br />1479 mad<br />1480 interference<br />1481 pupil<br />1482 fold<br />1483 royal<br />1484 valuable<br />1485 whisper<br />1486 anybody<br />1487 hurt<br />1488 excess<br />1489 quantity<br />1490 fun<br />1491 mud<br />1492 extension<br />1493 recognition<br />1494 kiss<br />1495 crop<br />1496 sail<br />1497 attractive<br />1498 habit<br />1499 relieve<br />1500 wisdom<br />1501 persuade<br />1502 certainty<br />1503 cloth<br />1504 eager<br />1505 deserve<br />1506 sympathetic<br />1507 cure<br />1508 trap<br />1509 puzzle<br />1510 powder<br />1511 raw<br />1512 mankind<br />1513 glad<br />1514 blame<br />1515 whenever<br />1516 anxiety<br />1517 bus<br />1518 tremble<br />1519 sacred<br />1520 fortunate<br />1521 glory<br />1522 golden<br />1523 neat<br />1524 weekend<br />1525 treasury<br />1526 overcome<br />1527 cat<br />1528 sacrifice<br />1529 complain<br />1530 elect<br />1531 roar<br />1532 sake<br />1533 temple<br />1534 self<br />1535 compete<br />1536 nurse<br />1537 stuff<br />1538 stomach<br />1539 peculiar<br />1540 repair<br />1541 storm<br />1542 ton<br />1543 desert<br />1544 allowance<br />1545 servant<br />1546 hunger<br />1547 conscience<br />1548 bread<br />1549 crash<br />1550 tip<br />1551 strengthen<br />1552 proof<br />1553 generous<br />1554 sir<br />1555 tonight<br />1556 whip<br />1557 tongue<br />1558 mill<br />1559 merchant<br />1560 coal<br />1561 ruin<br />1562 introduction<br />1563 courage<br />1564 actor<br />1565 belt<br />1566 stir<br />1567 package<br />1568 punish<br />1569 reflection<br />1570 breathe<br />1571 anywhere<br />1572 amuse<br />1573 dull<br />1574 fate<br />1575 net<br />1576 fellowship<br />1577 fault<br />1578 furniture<br />1579 beam<br />1580 pencil<br />1581 border<br />1582 disappoint<br />1583 flame<br />1584 joke<br />1585 bless<br />1586 corn<br />1587 shell<br />1588 tempt<br />1589 supper<br />1590 destruction<br />1591 dive<br />1592 anxious<br />1593 shine<br />1594 cheap<br />1595 dish<br />1596 distant<br />1597 greet<br />1598 flood<br />1599 excuse<br />1600 insect<br />1601 ocean<br />1602 ceremony<br />1603 decrease<br />1604 prize<br />1605 harm<br />1606 insure<br />1607 verse<br />1608 pot<br />1609 sincere<br />1610 cotton<br />1611 leaf<br />1612 rub<br />1613 medicine<br />1614 stroke<br />1615 bite<br />1616 lung<br />1617 lonely<br />1618 admission<br />1619 stupid<br />1620 scratch<br />1621 composition<br />1622 broadcast<br />1623 drum<br />1624 resist<br />1625 neglect<br />1626 absent<br />1627 passenger<br />1628 adventure<br />1629 beg<br />1630 pipe<br />1631 beard<br />1632 bold<br />1633 meanwhile<br />1634 devil<br />1635 cheer<br />1636 nut<br />1637 split<br />1638 melt<br />1639 swear<br />1640 sugar<br />1641 bury<br />1642 wipe<br />1643 faint<br />1644 creature<br />1645 tail<br />1646 wealth<br />1647 earnest<br />1648 translate<br />1649 suspicion<br />1650 noble<br />1651 inquiry<br />1652 journey<br />1653 hesitate<br />1654 extraordinary<br />1655 borrow<br />1656 owe<br />1657 funeral<br />1658 ambition<br />1659 mixture<br />1660 slope<br />1661 criminal<br />1662 seldom<br />1663 map<br />1664 spin<br />1665 praise<br />1666 spare<br />1667 plow<br />1668 telegraph<br />1669 barrel<br />1670 straighten<br />1671 scarce<br />1672 lunch<br />1673 slavery<br />1674 creep<br />1675 sweat<br />1676 gay<br />1677 stiff<br />1678 brave<br />1679 seize<br />1680 convenient<br />1681 horizon<br />1682 moderate<br />1683 complicate<br />1684 dig<br />1685 curse<br />1686 weigh<br />1687 priest<br />1688 excessive<br />1689 quarrel<br />1690 widow<br />1691 modest<br />1692 dine<br />1693 politician<br />1694 custom<br />1695 educate<br />1696 salesman<br />1697 nail<br />1698 tap<br />1699 eastern<br />1700 possession<br />1701 satisfaction<br />1702 behave<br />1703 mercy<br />1704 scatter<br />1705 objection<br />1706 silver<br />1707 tent<br />1708 saddle<br />1709 wrap<br />1710 nest<br />1711 grind<br />1712 spell<br />1713 plaster 1714 arch<br />1715 swell<br />1716 friendship<br />1717 bath<br />1718 bundle<br />1719 grateful<br />1720 crown<br />1721 boundary<br />1722 nowhere<br />1723 asleep<br />1724 clock<br />1725 boil<br />1726 altogether<br />1727 lend<br />1728 holiday<br />1729 precious<br />1730 wander<br />1731 ugly<br />1732 reputation<br />1733 ticket<br />1734 pretend<br />1735 dismiss<br />1736 delicate<br />1737 despair<br />1738 awake<br />1739 tea<br />1740 FALSE<br />1741 fortune<br />1742 cap<br />1743 thread<br />1744 haste<br />1745 bare<br />1746 shirt<br />1747 bargain<br />1748 leather<br />1749 rail<br />1750 butter<br />1751 dot<br />1752 inquire<br />1753 warmth<br />1754 decisive<br />1755 vessel<br />1756 pity<br />1757 steam<br />1758 pin<br />1759 bound<br />1760 companion<br />1761 toe<br />1762 reward<br />1763 forbid<br />1764 wherever<br />1765 tower<br />1766 bathe<br />1767 lodge<br />1768 swallow<br />1769 multiply<br />1770 bow<br />1771 kingdom<br />1772 garage<br />1773 permission<br />1774 pump<br />1775 prevention<br />1776 urgent<br />1777 aunt<br />1778 zero<br />1779 idle<br />1780 fever<br />1781 Christmas<br />1782 regret<br />1783 jaw<br />1784 soap<br />1785 pronounce<br />1786 empire<br />1787 bowl<br />1788 outline<br />1789 organ<br />1790 imitation<br />1791 caution<br />1792 mineral<br />1793 disagree<br />1794 blade<br />1795 trick<br />1796 treasure<br />1797 immense<br />1798 convenience<br />1799 disapprove<br />1800 destructive<br />1801 fork<br />1802 noon<br />1803 ownership<br />1804 tune<br />1805 polish<br />1806 poison<br />1807 shame<br />1808 loyalty<br />1809 cottage<br />1810 astonish<br />1811 shave<br />1812 feather<br />1813 sauce<br />1814 lid<br />1815 debt<br />1816 fade<br />1817 confess<br />1818 classification<br />1819 descend<br />1820 cape<br />1821 mild<br />1822 clever<br />1823 envelope<br />1824 invention<br />1825 sheep<br />1826 splendid<br />1827 stamp<br />1828 float<br />1829 brick<br />1830 rice<br />1831 businessman<br />1832 backward<br />1833 qualification<br />1834 artificial<br />1835 attraction<br />1836 lamp<br />1837 curl<br />1838 shower<br />1839 elder<br />1840 bunch<br />1841 bell<br />1842 steer<br />1843 flavor<br />1844 spit<br />1845 rob<br />1846 cream<br />1847 interrupt<br />1848 pen<br />1849 weave<br />1850 orange<br />1851 rescue<br />1852 crush<br />1853 humble<br />1854 fancy<br />1855 decay<br />1856 polite<br />1857 tribe<br />1858 bleed<br />1859 coin<br />1860 fond<br />1861 autumn<br />1862 classify<br />1863 omit<br />1864 loyal<br />1865 needle<br />1866 lessen<br />1867 complaint<br />1868 pad<br />1869 steep<br />1870 skirt<br />1871 curtain<br />1872 calculation<br />1873 laughter<br />1874 solemn<br />1875 grease<br />1876 interfere<br />1877 explode<br />1878 fasten<br />1879 flag<br />1880 resign<br />1881 postpone<br />1882 patience<br />1883 boast<br />1884 rope<br />1885 envy<br />1886 airplane<br />1887 rid<br />1888 shield<br />1889 veil<br />1890 kneel<br />1891 tray<br />1892 explosive<br />1893 brass<br />1894 taxi<br />1895 wax<br />1896 duck<br />1897 button<br />1898 invent<br />1899 remedy<br />1900 bush<br />1901 thunder<br />1902 weaken<br />1903 poverty<br />1904 scrape<br />1905 arrow<br />1906 tender<br />1907 cruel<br />1908 soften<br />1909 mouse<br />1910 hay<br />1911 anyhow<br />1912 alike<br />1913 circular<br />1914 juice<br />1915 shelf<br />1916 bake<br />1917 hatred<br />1918 cautious<br />1919 basket<br />1920 wreck<br />1921 width<br />1922 confident<br />1923 log<br />1924 heap<br />1925 suck<br />1926 ladder<br />1927 gap<br />1928 obey<br />1929 hut<br />1930 axe<br />1931 translation<br />1932 collar<br />1933 delivery<br />1934 reproduce<br />1935 confession<br />1936 pan<br />1937 prejudice<br />1938 voyage<br />1939 tobacco<br />1940 simplicity<br />1941 paste<br />1942 cake<br />1943 elephant<br />1944 ribbon<br />1945 harvest<br />1946 ashamed<br />1947 cave<br />1948 customary<br />1949 thief<br />1950 damp<br />1951 sew<br />1952 rust<br />1953 separation<br />1954 waiter<br />1955 pet<br />1956 straw<br />1957 upset<br />1958 towel<br />1959 refresh<br />1960 essence<br />1961 fur<br />1962 ambitious<br />1963 defendant<br />1964 daylight<br />1965 dip<br />1966 suspicious<br />1967 imaginary<br />1968 ash<br />1969 carriage<br />1970 educator<br />1971 saw<br />1972 stove<br />1973 rubber<br />1974 rug<br />1975 misery<br />1976 awkward<br />1977 rival<br />1978 roast<br />1979 deed<br />1980 preference<br />1981 explosion<br />1982 theatrical<br />1983 cultivate<br />1984 collector<br />1985 miserable<br />1986 wrist<br />1987 rabbit<br />1988 accustom<br />1989 tide<br />1990 insult<br />1991 thumb<br />1992 lump<br />1993 annoy<br />1994 toy<br />1995 heal<br />1996 shallow<br />1997 repetition<br />1998 soup<br />1999 whistle<br />2000 scenery<br />2001 apple<br />2002 offense<br />2003 cork<br />2004 ripe<br />2005 temper<br />2006 sore<br />2007 pinch<br />2008 diamond<br />2009 razor<br />2010 imaginative<br />2011 hook<br />2012 copper<br />2013 landlord<br />2014 influential<br />2015 rot<br />2016 hollow<br />2017 enclose<br />2018 harden<br />2019 wicked<br />2020 stiffen<br />2021 silk<br />2022 upright<br />2023 selfish<br />2024 stripe<br />2025 pig<br />2026 inward<br />2027 excellence<br />2028 rake<br />2029 purple<br />2030 hasten<br />2031 shorten<br />2032 applause<br />2033 ache<br />2034 apology<br />2035 knot<br />2036 nephew<br />2037 cushion<br />2038 drown<br />2039 nursery<br />2040 pint<br />2041 fierce<br />2042 imitate<br />2043 aloud<br />2044 gaiety<br />2045 robbery<br />2046 tighten<br />2047 perfection<br />2048 scorn<br />2049 whoever<br />2050 trunk<br />2051 wool<br />2052 sailor<br />2053 competitor<br />2054 moonlight<br />2055 deer<br />2056 bean<br />2057 everyday<br />2058 drawer<br />2059 disregard<br />2060 nowadays<br />2061 patriotic<br />2062 tin<br />2063 penny<br />2064 cage<br />2065 pardon<br />2066 lately<br />2067 offend<br />2068 coarse<br />2069 spoil<br />2070 horizontal<br />2071 sting<br />2072 ditch<br />2073 librarian<br />2074 meantime<br />2075 cough<br />2076 deaf<br />2077 sword<br />2078 messenger<br />2079 vain<br />2080 castle<br />2081 elastic<br />2082 comb<br />2083 rod<br />2084 widen<br />2085 sorrow<br />2086 inventor<br />2087 cliff<br />2088 umbrella<br />2089 interruption<br />2090 merry<br />2091 gallon<br />2092 conquest<br />2093 headache<br />2094 tailor<br />2095 bucket<br />2096 scent<br />2097 signature<br />2098 cart<br />2099 darken<br />2100 sometime<br />2101 applaud<br />2102 underneath<br />2103 hello<br />2104 pretense<br />2105 descent<br />2106 conquer<br />2107 framework<br />2108 confidential<br />2109 adoption<br />2110 disgust<br />2111 waist<br />2112 momentary<br />2113 receipt<br />2114 pearl<br />2115 ray<br />2116 lazy<br />2117 limb<br />2118 grammatical<br />2119 beast<br />2120 monkey<br />2121 jewel<br />2122 persuasion<br />2123 obedience<br />2124 sock<br />2125 vowel<br />2126 hammer<br />2127 inn<br />2128 chimney<br />2129 dissatisfaction<br />2130 annoyance<br />2131 ornament<br />2132 honesty<br />2133 outward<br />2134 sharpen<br />2135 handkerchief<br />2136 greed<br />2137 heavenly<br />2138 thirst<br />2139 niece<br />2140 spill<br />2141 loaf<br />2142 wheat<br />2143 worm<br />2144 secrecy<br />2145 rude<br />2146 heighten<br />2147 flatten<br />2148 loosen<br />2149 cheese<br />2150 rivalry<br />2151 royalty<br />2152 discontent<br />2153 complication<br />2154 fright<br />2155 indoor<br />2156 flour<br />2157 actress<br />2158 congratulation<br />2159 ounce<br />2160 fry<br />2161 everlasting<br />2162 goat<br />2163 ink<br />2164 disappearance<br />2165 reproduction<br />2166 thicken<br />2167 avoidance<br />2168 spoon<br />2169 strap<br />2170 deceive<br />2171 lengthen<br />2172 revenge<br />2173 correction<br />2174 descendant<br />2175 hesitation<br />2176 spade<br />2177 basin<br />2178 weed<br />2179 omission<br />2180 old-fashioned<br />2181 bicycle<br />2182 breadth<br />2183 photography<br />2184 coward<br />2185 mat<br />2186 rejoice<br />2187 cheat<br />2188 congratulate<br />2189 discomfort<br />2190 enclosure<br />2191 attentive<br />2192 paw<br />2193 overflow<br />2194 dissatisfy<br />2195 multiplication<br />2196 whichever<br />2197 tidy<br />2198 bribe<br />2199 mend<br />2200 stocking<br />2201 feast<br />2202 nuisance<br />2203 thorn<br />2204 tame<br />2205 inclusive<br />2206 homemade<br />2207 handwriting<br />2208 chalk<br />2209 sour<br />2210 slippery<br />2211 procession<br />2212 ripen<br />2213 jealous<br />2214 jealousy<br />2215 liar<br />2216 homecoming<br />2217 barber<br />2218 whiten<br />2219 berry<br />2220 lighten<br />2221 pigeon<br />2222 hinder<br />2223 bravery<br />2224 baggage<br />2225 noun<br />2226 amongst<br />2227 grammar<br />2228 cultivation<br />2229 companionship<br />2230 rubbish<br />2231 modesty<br />2232 woolen<br />2233 deepen<br />2234 pastry<br />2235 cupboard<br />2236 quart<br />2237 canal<br />2238 notebook<br />2239 deceit<br />2240 parcel<br />2241 brighten<br />2242 moderation<br />2243 punctual<br />2244 hurrah<br />2245 lipstick<br />2246 uppermost<br />2247 fatten<br />2248 conqueror<br />2249 hindrance<br />2250 cowardice<br />2251 obedient<br />2252 saucer<br />2253 madden<br />2254 scold<br />2255 weekday<br />2256 rotten<br />2257 disrespect<br />2258 widower<br />2259 deafen<br />2260 donkey<br />2261 businesslike<br />2262 motherhood<br />2263 sadden<br />2264 handshake<br />2265 calculator<br />2266 headdress<br />2267 scissors<br />2268 translator<br />2269 possessor<br />2270 shilling<br />2271 redden<br />2272 motherly<br />2273 whose<br />2274 cultivator<br />2275 whom<br />2276 homework<br />2277 electrician<br />2278 oar<br />2279 bribery<br />2280 sweeten<br />2281 sow<br />2282 pronunciation<br />2283 beak<br />2284 plural</p>
+<p>2)Basic Words<br />常用英语单词之基础词汇<br />1. account<br />2. act<br />3. addition<br />4. adjustment<br />5. advertisement<br />6. agreement<br />7. air<br />8. amount<br />9. amusement<br />10. animal<br />11. answer<br />12. apparatus<br />13. approval<br />14. argument<br />15. art<br />16. attack<br />17. attempt<br />18. attention<br />19. attraction<br />20. authority<br />21. back<br />22. balance<br />23. base<br />24. behavior<br />25. belief<br />26. birth<br />27. bit<br />28. bite<br />29. blood<br />30. blow<br />31. body<br />32. brass<br />33. bread<br />34. breath<br />35. brother<br />36. building<br />37. burn<br />38. burst<br />39. business<br />40. butter<br />41. canvas<br />42. care<br />43. cause<br />44. chalk<br />45. chance<br />46. change<br />47. cloth<br />48. coal<br />49. color<br />50. comfort 51. committee<br />52. company<br />53. comparison<br />54. competition<br />55. condition<br />56. connection<br />57. control<br />58. cook<br />59. copper<br />60. copy<br />61. cork<br />62. copy<br />63. cough<br />64. country<br />65. cover<br />66. crack<br />67. credit<br />68. crime<br />69. crush<br />70. cry<br />71. current<br />72. curve<br />73. damage<br />74. danger<br />75. daughter<br />76. day<br />77. death<br />78. debt<br />79. decision<br />80. degree<br />81. design<br />82. desire<br />83. destruction<br />84. detail<br />85. development<br />86. digestion<br />87. direction<br />88. discovery<br />89. discussion<br />90. disease<br />91. disgust<br />92. distance<br />93. distribution<br />94. division<br />95. doubt<br />96. drink<br />97. driving<br />98. dust<br />99. earth<br />100. edge 101. education<br />102. effect<br />103. end<br />104. error<br />105. event<br />106. example<br />107. exchange<br />108. existence<br />109. expansion<br />110. experience<br />111. expert<br />112. fact<br />113. fall<br />114. family<br />115. father<br />116. fear<br />117. feeling<br />118. fiction<br />119. field<br />120. fight<br />121. fire<br />122. flame<br />123. flight<br />124. flower<br />125. fold<br />126. food<br />127. force<br />128. form<br />129. friend<br />130. front<br />131. fruit<br />132. glass<br />133. gold<br />134. government<br />135. grain<br />136. grass<br />137. grip<br />138. group<br />139. growth<br />140. guide<br />141. harbor<br />142. harmony<br />143. hate<br />144. hearing<br />145. heat<br />146. help<br />147. history<br />148. hole<br />149. hope<br />150. hour<br />&nbsp;151. humor<br />152. ice<br />153. idea<br />154. impulse<br />155. increase<br />156. industry<br />157. ink<br />158. insect<br />159. instrument<br />160. insurance<br />161. interest<br />162. invention<br />163. iron<br />164. jelly<br />165. join<br />166. journey<br />167. judge<br />168. jump<br />169. kick<br />170. kiss<br />171. knowledge<br />172. land<br />173. language<br />174. laugh<br />175. low<br />176. lead<br />177. learning<br />178. leather<br />179. letter<br />180. level<br />181. lift<br />182. light<br />183. limit<br />184. linen<br />185. liquid<br />186. list<br />187. look<br />188. loss<br />189. love<br />190. machine<br />191. man<br />192. manager<br />193. mark<br />194. market<br />195. mass<br />196. meal<br />197. measure<br />198. meat<br />199. meeting<br />200. memory</p>
+<p>3)General Adjectives<br />常用英语单词之常用形容词<br />1. able<br />2. acid<br />3. angry<br />4. automatic<br />5. awake<br />6. bad<br />7. beautiful<br />8. bent<br />9. bitter<br />10. black<br />11. blue<br />12. boiling<br />13. bright<br />14. broken<br />15. brown<br />16. certain<br />17. cheap<br />18. chemical<br />19. chief<br />20. clean<br />21. clear<br />22. cold<br />23. common<br />24. complete<br />25. complex<br />26. conscious<br />27. cruel<br />28. cut<br />29. dark<br />30. dead<br />31. dear<br />32. deep<br />33. delicate<br />34. dependent<br />35. different<br />36. dirty<br />37. dry<br />38. early<br />39. elastic<br />40. electric<br />41. equal<br />42. false<br />43. fat<br />44. feeble<br />45. female<br />46. fertile<br />47. first<br />48. fixed<br />49. flat<br />50. foolish 51. free<br />52. frequent<br />53. full<br />54. future<br />55. general<br />56. good<br />57. grey<br />58. great<br />59. green<br />60. hanging<br />61. happy<br />62. hard<br />63. healthy<br />64. high<br />65. hollow<br />66. ill<br />67. important<br />68. kind<br />69. last<br />70. late<br />71. left<br />72. like<br />73. living<br />74. long<br />75. loose<br />76. loud<br />77. low<br />78. male<br />79. married<br />80. material<br />81. medical<br />82. military<br />83. mixed<br />84. narrow<br />85. natural<br />86. necessary<br />87. new<br />88. normal<br />89. old<br />90. open<br />91. opposite<br />92. parallel<br />93. past<br />94. physical<br />95. political<br />96. poor<br />97. possible<br />98. present<br />99. private<br />100. probable 101. public<br />102. quick<br />103. quiet<br />104. ready<br />105. red<br />106. regular<br />107. responsible<br />108. right<br />109. rough<br />110. round<br />111. sad<br />112. safe<br />113. same<br />114. second<br />115. secret<br />116. separate<br />117. serious<br />118. sharp<br />119. short<br />120. shut<br />121. simple<br />122. slow<br />123. small<br />124. smooth<br />125. soft<br />126. solid<br />127. special<br />128. sticky<br />129. stiff<br />130. straight<br />131. strange<br />132. strong<br />133. sudden<br />134. sweet<br />135. tall<br />136. thick<br />137. thin<br />138. tight<br />139. tired<br />140. true<br />141. violent<br />142. waiting<br />143. warm<br />144. wet<br />145. white<br />146. wide<br />147. wise<br />148. wrong<br />149. yellow<br />150. young</p>
+<p>4)General Nouns<br />常用英语单词之常用名词<br />1. account<br />2. act<br />3. addition<br />4. adjustment<br />5. advertisement<br />6. agreement<br />7. air<br />8. amount<br />9. amusement<br />10. animal<br />11. answer<br />12. apparatus<br />13. approval<br />14. argument<br />15. art<br />16. attack<br />17. attempt<br />18. attention<br />19. attraction<br />20. authority<br />21. back<br />22. balance<br />23. base<br />24. behavior<br />25. belief<br />26. birth<br />27. bit<br />28. bite<br />29. blood<br />30. blow<br />31. body<br />32. brass<br />33. bread<br />34. breath<br />35. brother<br />36. building<br />37. burn<br />38. burst<br />39. business<br />40. butter<br />41. canvas<br />42. care<br />43. cause<br />44. chalk<br />45. chance<br />46. change<br />47. cloth<br />48. coal<br />49. color<br />50. comfort<br />&nbsp;51. committee<br />52. company<br />53. comparison<br />54. competition<br />55. condition<br />56. connection<br />57. control<br />58. cook<br />59. copper<br />60. copy<br />61. cork<br />62. copy<br />63. cough<br />64. country<br />65. cover<br />66. crack<br />67. credit<br />68. crime<br />69. crush<br />70. cry<br />71. current<br />72. curve<br />73. damage<br />74. danger<br />75. daughter<br />76. day<br />77. death<br />78. debt<br />79. decision<br />80. degree<br />81. design<br />82. desire<br />83. destruction<br />84. detail<br />85. development<br />86. digestion<br />87. direction<br />88. discovery<br />89. discussion<br />90. disease<br />91. disgust<br />92. distance<br />93. distribution<br />94. division<br />95. doubt<br />96. drink<br />97. driving<br />98. dust<br />99. earth<br />100. edge<br />&nbsp;101. education<br />102. effect<br />103. end<br />104. error<br />105. event<br />106. example<br />107. exchange<br />108. existence<br />109. expansion<br />110. experience<br />111. expert<br />112. fact<br />113. fall<br />114. family<br />115. father<br />116. fear<br />117. feeling<br />118. fiction<br />119. field<br />120. fight<br />121. fire<br />122. flame<br />123. flight<br />124. flower<br />125. fold<br />126. food<br />127. force<br />128. form<br />129. friend<br />130. front<br />131. fruit<br />132. glass<br />133. gold<br />134. government<br />135. grain<br />136. grass<br />137. grip<br />138. group<br />139. growth<br />140. guide<br />141. harbor<br />142. harmony<br />143. hate<br />144. hearing<br />145. heat<br />146. help<br />147. history<br />148. hole<br />149. hope<br />150. hour<br />&nbsp;151. humor<br />152. ice<br />153. idea<br />154. impulse<br />155. increase<br />156. industry<br />157. ink<br />158. insect<br />159. instrument<br />160. insurance<br />161. interest<br />162. invention<br />163. iron<br />164. jelly<br />165. join<br />166. journey<br />167. judge<br />168. jump<br />169. kick<br />170. kiss<br />171. knowledge<br />172. land<br />173. language<br />174. laugh<br />175. low<br />176. lead<br />177. learning<br />178. leather<br />179. letter<br />180. level<br />181. lift<br />182. light<br />183. limit<br />184. linen<br />185. liquid<br />186. list<br />187. look<br />188. loss<br />189. love<br />190. machine<br />191. man<br />192. manager<br />193. mark<br />194. market<br />195. mass<br />196. meal<br />197. measure<br />198. meat<br />199. meeting<br />200. memory<br /></p>
+<p>想快速记忆常用英语单词，请点击进入能飞背单词系统：<a href="http://word.langfly.com">http://word.langfly.com</a></p>
+
+                </div>
+            </div>
+            <div class="left_region_block" style="height: 120px;">
+                <div class="left_block_title">
+                    <a href="/m/a_l2_1">相关文章</a><a href="/m/a_l2_1" style="float: right;">more</a>
+                </div>
+                
+                <a class="related_article_item" href="/m/a_413556368">中国传统小吃英语词汇</a>
+                
+                <a class="related_article_item" href="/a/20120426/093117.shtml">外研社高中英语（第二册）</a>
+                
+                <a class="related_article_item" href="/a/20120409/110056.shtml">初中英语口语900句（一）</a>
+                
+                <a class="related_article_item" href="/a/20120218/103623.shtml">小学英语单词：新起点小学英语（六年级下册）</a>
+                
+                <a class="related_article_item" href="/a/20120311/213756.shtml">英语单词记忆速记（双字母联想记忆法）</a>
+                
+                <a class="related_article_item" href="/a/20120308/215617.shtml">英语语法大全—代词—反身代词</a>
+                
+            </div>
+        </div>
+        <div id="right_region">
+            <div id="RightEle">
+                <div style="width: 246px; height: 250px; padding-bottom: 20px;">
+                    <script type="text/javascript">
+                        /*word_article_246*/
+                        var cpro_id = "u1926295";
+                    </script>
+                    <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+                </div>
+                <a href="/tj/re/sati" target="_blank" style="display: block;">
+                    <img src="/Styles/WebImage/article/try_intelligence.gif" alt="体验智能记忆" /></a>
+                <a href="/tj/re/satw" target="_blank" style="display: block; margin-top: 20px;">
+                    <img src="/Styles/WebImage/article/mem_new_word.gif" alt="记住文章里的生词" /></a>
+                <!--
+                <div style="margin-top: 20px; width: 246px;">
+                    <div style="text-align: center; font-size: 16px; background: #b0dfe3; padding: 5px;">能飞英语官方微信</div>
+                    <div style="width: 244px; border: 1px solid #b0dfe3; overflow: auto;">
+                        <img src="/Styles/WebImage/descrip/courses/weixin.jpg" alt="能飞英语官方微信" style="width: 100px; height: 100px; float: left;" />
+                        <div style="margin: 10px; float: left; width: 124px; height: 80px;">英语学习方法，英语学习资料，微信号：www_langfly_com</div>
+                    </div>
+                </div>
+                -->
+                <div style="margin-top: 20px; width: 246px; height: 200px;">
+                    <div id="ad1" style="width: 100%; height: 100%; display: none;">
+                        <a href="http://www.qimiaow.com/r-jm-b" target="_blank">
+                            <img src="/Styles/WebImage/article/ad20150212_1.jpg" alt="" style="width: 246px; height: 200px;" /></a>
+                    </div>
+                    <div id="ad2" style="width: 100%; height: 100%; display: none;">
+                        <a href="http://www.qimiaow.com/r-jm-c" target="_blank">
+                            <img src="/Styles/WebImage/article/ad20150212_2.jpg" alt="" style="width: 246px; height: 200px;" /></a>
+                    </div>
+                    <div id="ad3" style="width: 100%; height: 100%; display: none;">
+                        <a href="http://www.qimiaow.com/r-jm-d" target="_blank">
+                            <img src="/Styles/WebImage/article/ad20150212_3.jpg" alt="" style="width: 246px; height: 200px;" /></a>
+                    </div>
+                    <div id="ad4" style="width: 100%; height: 100%; display: none;">
+                        <a href="http://www.qimiaow.com/r-jm-e" target="_blank">
+                            <img src="/Styles/WebImage/article/ad20150212_4.jpg" alt="" style="width: 246px; height: 200px;" /></a>
+                    </div>
+                    <div id="ad5" style="width: 100%; height: 100%; display: none;">
+                        <a href="http://www.qimiaow.com/r-jm-j" target="_blank">
+                            <img src="/Styles/WebImage/article/ad20150212_5.jpg" alt="" style="width: 246px; height: 200px;" /></a>
+                    </div>
+                    <script type="text/javascript">
+                        var rand = Math.random();
+                        if (rand < 0.1) {
+                            ad1.style.display = "block";
+                        }
+                        else if (rand < 0.2) {
+                            ad2.style.display = "block";
+                        }
+                        else if (rand < 0.3) {
+                            ad3.style.display = "block";
+                        }
+                        else if (rand < 0.4) {
+                            ad4.style.display = "block";
+                        }
+                        else {
+                            ad5.style.display = "block";
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div id="RightBottomEle" class="right_down_corner">
+            <div class="go_learn">
+                <a href="/Default.aspx" title="马上学习"></a>
+            </div>
+            <div class="to_top">
+                <a href="javascript:ToTop();" title="回到顶部"></a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            (function () {
+                $backToTopFun = function () {
+                    var st = $(document).scrollTop();
+                    if (st > 0) {
+                        $("#RightBottomEle").show();
+                    }
+                    else {
+                        $("#RightBottomEle").hide();
+                    }
+
+                    if (st > 137) {
+                        $("#RightEle").css("top", st - 137);
+                    }
+                    else {
+                        $("#RightEle").css("top", 0);
+                    }
+                };
+                $(window).bind("scroll", $backToTopFun);
+                $(function () { $backToTopFun(); });
+            })();
+        </script>
+    </div>
+
+    </div>
+    <div class="clear">
+    </div>
+    <div id="master_footer">
+        <div id="master_footer_row1">
+            <a href="/Default.aspx" style="color: #0088cc;">能飞背单词</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="/children/index.aspx" style="color: #0088cc;">小学背单词</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="/phone/index.aspx" style="color: #0088cc;">手机背单词</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="/w/index.aspx" style="color: #0088cc;">能飞词典</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="/app/index.aspx" style="color: #0088cc;">单词应用</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="http://www.qimiaow.com" style="color: #0088cc;">奇喵网</a>
+            <div class="master_footer_divider">
+            </div>
+            <a href="/descrip/intro.aspx" target="_blank" style="float: right;">产品介绍</a>
+            <div class="master_footer_divider" style="float: right;">
+                |
+            </div>
+            <a href="/m/index.aspx" target="_blank" style="float: right;">背单词方法</a>
+            <div class="master_footer_divider" style="float: right;">
+                |
+            </div>
+            <a href="/c/index.aspx" target="_blank" style="float: right;">分类词汇</a>
+            <div class="master_footer_divider" style="float: right;">
+                |
+            </div>
+            <a href="/w/sdir.aspx" target="_blank" style="float: right;">专业英语词汇</a>
+            <div class="master_footer_divider" style="float: right;">
+                |
+            </div>
+            <a href="/publish/_examples/publish.aspx" target="_blank" style="float: right;">文章发布</a>
+        </div>
+        <div id="master_footer_row2">
+            <div style="float: left;">
+                Copyright © 2012-2013 word.langfly.com. All rights reserved.
+            </div>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="http://www.miibeian.gov.cn" target="_blank">粤ICP备07018785号</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="http://210.76.65.188/webrecord/innernet/Welcome.jsp?bano=4406063012156"
+                target="_blank">安网备案编号：4406063012156</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="/system/sitemap.aspx" target="_blank">网站地图</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="http://www.langfly.com/company/langfly_index.shtml" target="_blank">关于我们</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <a href="http://www.zwshijie.com/" target="_blank">中文世界</a>
+            <div class="master_footer_divider">
+                |
+            </div>
+            <script type="text/javascript" src="http://s24.cnzz.com/stat.php?id=3633664&web_id=3633664"></script>
+        </div>
+    </div>
+    <!-- Baidu Button BEGIN -->
+    <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1"></script>
+    <script type="text/javascript" id="bdshell_js"></script>
+    <script type="text/javascript">
+        var bds_config = { 'bdText': '能飞背单词，最好的背单词软件。word.langfly.com  ' };
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+    </script>
+    <!-- Baidu Button END -->
+</body>
+</html>

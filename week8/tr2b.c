@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main(int argc, char** argv)
+{
+  char buffer;
+  char arr[128];
+  char same[128];
+  if (argc>1)
+  {
+  int length1=strlen(argv[1]);
+  int length2=strlen(argv[2]); 
+  if(length1!=length2) //same length
+  {
+    fprintf(stderr,"an error from and to are not the same length\n");
+    exit(-1);
+  }
+  int i;
+  for(i=0;i<128;i++)
+    {
+      same[i]=0;
+      arr[i]=i;
+    }
+  char ch;
+  for(i=0;i<length1;i++)
+    {
+      ch=argv[1][i];
+      if(same[ch]==1) //duplicate bytes
+	{
+	  fprintf(stderr,"this char '%c' is duplicate bytes \n",ch);
+	  exit(-1);
+	}
+      else
+	{
+	  same[ch]=1;
+	  arr[ch]=argv[2][i]; //map
+	}
+    }
+  while((buffer = getchar())!=EOF)
+    {
+      putchar(arr[buffer]);
+    }
+  }
+  else
+    while((buffer=getchar())!=EOF)
+      {
+	putchar(buffer);
+      }
+}
+
