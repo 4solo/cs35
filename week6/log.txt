@@ -1,0 +1,38 @@
+first for both server and clinet
+to install OpenSSH
+$sudo apt-get update
+$sudo apt-get install openssh-server
+$sudo apt-get install openssh-client
+For the Server
+my partner is feng zhen
+and I use
+$sudo useradd -d /home/zhenge -m zhenge
+to create the directory for him
+$sudo passwd zhenge
+this is going to set a password for him
+then$cd /home/zhenge
+$sudo mkdir .ssh
+$sudo chown -R zhenge .ssh
+$sudo chmod 700 .ssh
+this is change the owner of ssh
+and give him premission on .ssh directory
+$ifconfig
+to see the ip server for him
+
+then for the Client side
+$ssh-keygen
+to create a key pair for the clinet
+also create passphase for private key
+$ping 10.85.97.201 to check if server responds
+$ssh-copy-id -i yiwang@10.85.97.201
+this ask for the password for server
+and the passphase to use passwordless
+$ssh-add
+to make it passphaseless
+$ssh -X yiwang@10.85.97.201
+i dont need to enter password or passphase
+once i log into the server
+$xterm
+to see if it worked an xterm window
+$firebox
+now i run the firebox on the server.

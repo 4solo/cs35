@@ -1,0 +1,18 @@
+1.if they observe all the bytes across the
+network it still work. because what they see
+it is the file we use private key to encode
+if they dont have our public key to decode it
+unless they have our public key to decode
+then it will no be secure
+
+(1) same if they dont have our public key
+still dont know how to encode, so message still
+secure
+(2) if they have our private key and public key
+by control our use booted our message will be
+not secure.
+
+2. command gpg --verify only if the public key and
+private key are pair. we have to use third-party
+create the certification to make sure everything
+is good.
