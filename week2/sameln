@@ -1,0 +1,39 @@
+#!/usr/local/cs/bin/bash
+IFS=$'\n'
+dir=$1
+export LC_ALL='C'
+locale
+RESULT=`ls -a $dir |sort `
+
+declare -a Arr1 # Arr1 is arr has all the regular file inside 
+count=0
+#save the filename  into arr1
+for FILE in $RESULT
+do 
+    if [ -f "$dir/$FILE" ]
+    then
+    Arr1[$count]="$dir/$FILE"
+    let count=count+1
+    fi
+done
+echo "$count" > log
+number=0
+#go though the arrlist to check if there are same or not use double loop
+#if they are the same replace the with hard link 
+while [ $number -lt $count ]
+do
+    let start=number+1
+    while [ $start -lt $count ]
+    do
+	if cmp ${Arr1[$number]} ${Arr1[$start]} >>log
+	then
+	    #echo "${Arr1[$number]} and ${Arr1[$start]} there are same"
+	    rm ${Arr1[$start]}
+	    ln ${Arr1[$number]} ${Arr1[$start]} 
+        fi
+	let start=start+1
+    done
+    let number=number+1
+done
+
+

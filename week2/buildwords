@@ -1,0 +1,28 @@
+#!/usr/local/cs/bin/bash
+
+#this is my bash
+#delete the first part unitl see the first hawaiian word
+sed '/<!DOCTYPE/,/Adopt/d' - |\
+#delete the <\tr> to <\td>
+    sed '/<\/tr>/,/<\/td>/d' |\
+#replace <u>word</u> with word
+    sed 's/<u>\([^<]*\)<\/u>/\1/g'|\
+#replace <td>word</td> with word     
+    sed 's/<td>\([^<]*\)<\/td>/\1/g'|\
+#replace ` with '    
+    tr -s '`' "'" |\
+#replace space with \n
+    tr -s ' ' '\n'|\
+#replace , with \n
+    tr -s ',' '\n'|\
+#replace \r with \n
+    tr -s  '\r' '\n'|\
+#replace the upper case to lower case
+    tr '[A-Z]' '[a-z]'|\
+#remove all the empty line 
+    sed '/^$/d' |\
+# get all the words have hawaiian letter
+    grep ^[pk\'mnwlhaeiou]*$ |\
+# sort and remove duplicate
+    sort -u    
+

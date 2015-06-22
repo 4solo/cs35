@@ -1,0 +1,74 @@
+type the locale in the shell command.
+it shows LC_CTYPE="en_US.UTF-8"
+then I type export LC_ALL='C'
+and type locale again
+it change to the LC_CTYPE="C"
+then in shell command
+type sort /usr/share/dict/words > words
+then type wget http://www.cs.ucla.edu/classes/spring15/cs35L/assign/assign2.html
+tr -c 'A-Za-z' '[\n*]' <assign2.html >word1
+this give the every char is not A-Za-z replace with \n which is change line
+then I type tr -cs 'A-Za-z' '[\n*]' <assign2.html >word2
+this command replace the input sequence repeated with only one \n
+then I type tr -cs 'A-Za-z' '[\n*]' <assign2.html |sort >word3
+this command sort the all the word in the word2 and put into word3
+then I type tr -cs 'A-Za-z' '[\n*]' <assign2.html |sort -u >word4
+this command make word in the word3 only appear one time
+then I type tr -cs 'A-Za-z' '[\n*]' <assign2.html | sort -u
+| comm - words >word5
+this command make compare two sorted file
+one is from tr -cs 'A-Za-z' '[\n*]' <assign2.html | sort -u
+one is from words
+and there is 3 column
+first column is only  inside assign2.html like ALL
+the second column is the word only inside words like 've
+the last column is the words in both files like ASCII
+then I type tr -cs 'A-Za-z' '[\n*]' <assign2.html | sort -u
+| comm -23 words >word6
+word6 only have one column which is only appear in the assign2.html
+then I type wget http://mauimapp.com/moolelo/hwnwdseng.htm
+then I use emacs to make my script
+I type emacs buildwords 
+#!/usr/local/cs/bin/bash
+#this is my bash
+#delete the first part unitl see the first hawaiian word
+sed '/<!DOCTYPE/,/Adopt/d' - |\
+#delete the <\tr> to <\td>
+    sed '/<\/tr>/,/<\/td>/d' |\
+#replace <u>word</u> with word
+    sed 's/<u>\([^<]*\)<\/u>/\1/g'|\
+#replace <td>word</td> with word     
+    sed 's/<td>\([^<]*\)<\/td>/\1/g'|\
+#replace ` with '    
+    tr -s '`' "'" |\
+#replace space with \n
+    tr -s ' ' '\n'|\
+#replace , with \n
+    tr -s ',' '\n'|\
+#replace \r with \n
+    tr -s  '\r' '\n'|\
+#replace the upper case to lower case
+    tr '[A-Z]' '[a-z]'|\
+#remove all the empty line 
+    sed '/^$/d' |\
+# get all the words have hawaiian letter
+    grep ^[pk\'mnwlhaeiou]*$ |\
+# sort and remove duplicate
+    sort -u    
+then i type tr -cs 'A-Za-z' '[\n*]' <assgin2.html |tr 'A-Z' 'a-z'|
+sort -u | comm -23 - words >missspellen
+then i type tr -cs 'A-Za-z' '[\n*]' <assgin2.html |tr 'A-Z' 'a-z'|
+sort -u | comm -23 - hwords >missspellha
+I type tr -cs 'A-Za-z' '[\n*]' <assgin2.html |tr 'A-Z' 'a-z'|
+sort -u | comm -23 - words |wc -w
+to check how many missspell english word which is 38
+I type tr -cs 'A-Za-z' '[\n*]' <assgin2.html |tr 'A-Z' 'a-z'|
+sort -u | comm -23 - hwords |wc -w
+to check how many missspell hawaiian word which is 405
+since i have two miss spell file
+I type comm -3 missspellen hwords to check
+which is in miss spell in english but not in hwords
+like wiki
+I type comm -3 missspellha words to check
+which is in miss spell in hawaii but no in words
+like write
