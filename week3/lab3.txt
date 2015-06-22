@@ -1,0 +1,57 @@
+1. first wget ftp://ftp.gnu.org/gnu/coreutils/coreutils-7.6.tar.gz
+   to download the source 
+2. use command tar xvf coreutils-7.6.tar.gz
+   decompress file in current directory
+3. cd coreutils-7.6
+   go to the dir 
+4. use command mkdir Build
+   create the new dir
+5. use command ./configure --prefix=/u/cs/ugrad/yiwa/coreutils-7.6/Build
+   Script that checks details about the machines before installation
+   creates 'makefile'
+6. use command make
+   requares'make file' to run compiles all the program code
+   and creates executables in current temporary directory
+7. use command make install
+   make utility searches for a label named install within the makefiles, and
+   executes only that section of it executable are copied into the final
+   directories
+8. emacs patch_file.
+   want to create a new file
+10. put the different into patch_file
+    make the patch_file become patch_file
+11. save and exit emacs    
+12. use command cd /u/cs/ugrad/yiwa/coreutils-7.6
+    go to dir 
+13. use command patch -p1<patch_file
+    apply the patch_file
+14. use command make
+    recompiles the file which we just add the patch
+make  all-recursive go to all the dir recursive
+Making all in lib we dont need 
+make  all-am
+  CC     ls.o
+  CCLD   dir
+  CCLD   vdir
+  CCLD   ls
+this is what we change in the ls.c and apply to recomplie 
+Making all in doc no need 
+Making all in man 
+GEN    dir.1
+GEN    vdir.1
+GEN    ls.1
+this is what we change in the ls.c and make man page change.
+the rest part print to the screen we dont need because nothing
+show on the screen.
+	  
+	  
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	  
+	  
+	      

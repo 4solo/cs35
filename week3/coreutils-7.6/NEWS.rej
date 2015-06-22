@@ -1,0 +1,6 @@
+--- NEWS
++++ NEWS
+@@ -32,3 +32,2 @@
+-*-outline -*-
+ last component (possibly via a dangling symlink) can be created,
+ since mkdir will succeed in that case.

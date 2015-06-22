@@ -1,0 +1,33 @@
+Q1:The patch removed the "case_long_iso_time_style" because in line 2030
+there is go to case_long_iso_time_style.
+since this is only time it appear in the
+code so we dont need to use this, so we delete this line
+but even if we dont delete this line it still work.
+
+Q2: the format for english is month day year but for other country is maybe
+the day month year, also for the people who dont speak english
+they may need to take time to find out what is the english means for the month
+so using number is better and common way or depend on the locale.
+
+Q3: because in choice which random lib
+it return seq[int(self.random()*len(seq))]
+raises IndexError if seq is empty
+so since the file is no line inside, so the list is empty
+and len(seq)=0 but return seq[0] which is the first line
+but it doesn't exit
+
+Q4:  File "./randline.py", line 43
+    except IOError as (errno, strerror):
+                      ^
+SyntaxError: invalid syntax
+this is only mistake. I think the python3 only can take one
+argument.
+if we change except IOError as err:
+   errno,strerror =err.args
+the problem solve
+exceptions in Python 2 are iterable, and that you can iterate over
+the parameters given to the exception by iterating over the except
+ion itself.This of course breaks the "Explicit is better than impl
+icit" rule of Python and has as such been removed in Python 3, so
+you can no longer do that.
+
