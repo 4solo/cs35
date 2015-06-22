@@ -1,0 +1,23 @@
+#include"randlib.h"
+#include <immintrin.h>
+/* Initialize the hardware rand64 implementation.  */
+void __attribute__((constructor))
+hardware_rand64_init (void)
+{
+}
+
+/* Return a random value, using hardware operations.  */
+unsigned long long
+rand64 (void)
+{
+  unsigned long long int x;
+  while (! _rdrand64_step (&x))
+    continue;
+  return x;
+}
+
+/* Finalize the hardware rand64 implementation.  */
+void __attribute__((constructor))
+hardware_rand64_fini (void)
+{
+}

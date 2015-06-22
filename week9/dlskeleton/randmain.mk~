@@ -1,0 +1,9 @@
+randmain: randmain.c randcpuid.o
+	gcc -Wall -ldl -Wl,-rpath=. randmain.c randcpuid.o -o $@
+randlibhw.so: randlibhw.c
+	gcc -Wall -shared -fPIC randlibhw.c -mrdrnd -o $@
+randlibsw.so: randlibsw.c
+	gcc -Wall -shared -fPIC randlibsw.c -mrdrnd -o $@  	    
+randcpuid.o: randcpuid.c
+	gcc -c randcpuid.c -o $@
+

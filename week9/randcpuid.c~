@@ -1,0 +1,7 @@
+#include"randcpuid.h"
+extern _Bool
+rdrand_supported (void)
+{
+  struct cpuid extended = cpuid (1, 0);
+  return (extended.ecx & bit_RDRND) != 0;
+}

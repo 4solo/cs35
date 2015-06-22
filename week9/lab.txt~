@@ -1,0 +1,61 @@
+1. write a helloworld program on C.
+ $gcc hello.c -o hello.o
+ $./hello.o
+ output is hello,world!
+2.$ldd hello.o
+ linux-vdso.so.1 =>  (0x00007fff40361000)
+ libc.so.6 => /lib64/libc.so.6 (0x0000003764000000)
+ /lib64/ld-linux-x86-64.so.2 (0x0000003763c00000)
+ this is my program use for dynamic libraries.
+3.$strace ./hello.o
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+open("/lib64/libc.so.6", O_RDONLY)      = 3
+this is system call relate to dynamic linking.
+$man ld.so
+The programs ld.so and ld-linux.so* find and load the shared
+libraries needed by a program, prepare the program to run, and then
+run it.
+$man libc
+The term "libc" is commonly used as a shorthand for the "standard C library", a library of standard
+functions that can be used by all C programs  (and  sometimes  by  programs  in  other  languages).
+Because  of  some history (see below), use of the term "libc" to refer to the standard C library is
+somewhat ambiguous on Linux.
+4.$ls/usr/bin |awk'NR%101==504426290%101'
+Awk NR gives you the total number of records being processed or line number.
+which means only display the record when it%101 is same as my ID %101
+5.my list is
+apt no error
+cameratopam no error
+create_svnignore is not a dynamic executable
+dehtmldiff is not a dynamic executable
+eu-elfcmp no error
+foomatic-datafile is not a dynamic executable
+glxgears no error 
+gpk-install-provide-file no error
+hal-device no error
+id no error
+kadmin no error	
+kmmatch no error
+libpng-config is not a dynamic executable
+man no error
+msgunfmt no error
+nspr-config is not a dynamic executable
+pammixinterlace no error
+pbmtoibm23xx no error
+pgpring no error
+pnmdepth no error
+ppmtobmp  no error
+qcatool2 no error
+rftp is not a dynamic executable
+scrollkeeper-get-toc-from-docpath is not a dynamic executable
+smp_rep_phy_sata no error
+systemsettings no error
+uic3 no error
+wrjpgcom no error
+xsetroot no error
+then I write a script to do the sort every dynamic library.
+     
+
+
+

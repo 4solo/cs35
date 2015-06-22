@@ -1,0 +1,13 @@
+#!/usr/local/cs/bin/bash
+IFS=$'\n'
+file=$1
+result=`cat $file` 
+export LC_ALL='C'
+cd /usr/bin
+for FILE in $result
+do 
+   ldd ./$FILE >> ~/cs35/week9/a  
+done
+cd ~/cs35/week9/
+cat a | sort -u >final
+
