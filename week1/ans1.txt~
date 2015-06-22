@@ -1,0 +1,87 @@
+1. man -k <keyword>
+2. cp: /bin/cp /usr/share/man/man1/cp.1.gz /usr/share/man/man1p/cp.1p.gz
+   wc: /usr/bin/wc /usr/share/man/man1/wc.1.gz /usr/share/man/man1p/wc.1p.gz
+   using whereis
+3. [ in /usr/bin/[ no man page 
+   w in /usr/bin/w show who is logged on and what they are doing
+   X a portable, network-transparent window system
+   find all the  directories in the $PATH
+   using -executable -name "?"
+   find /usr/local/cs/bin -executable -name "?"
+   find /usr/lib64/qt-3.3/bin -executable -name "?"
+   find /usr/local/bin -executable -name "?"
+   find /bin -executable -name "?"
+   find /usr/bin -executable -name "?"
+   find /opt/dell/srvadmin/bin -executable -name "?"
+4. gcc	
+   ls -l /usr/bin/cc
+5. it will remove the group ID on execution 
+   man chmod    
+6. find -mtime -3    
+   man find
+7. find / -type d -mtime -3
+   there is so many.
+8. 18
+   which find
+   cd /bin
+   find -type l | wc -l 
+9. libsqlite3.so.0.8.6
+   cd /usr/lib
+   ls -lt
+10.locate reads one or more databases prepared by updatedb.
+   /var/lib/mlocate/mlocate.db
+   man locate
+11.Buffer-menu-sort
+   sort-columns
+   sort-fields
+   sort-numeric-fields
+   sort-pages
+   sort-paragraphs
+   sort-regexp-fields
+   tabulated-list-col-sort
+   tabulated-list-sort
+   C-h a sort
+12.C-a runs the command move-beginning-of-line
+   C-b runs the command backward-char
+   C-c prefix to other commands
+   C-d runs the command delete-char
+   C-e runs the command move-end-of-line
+   C-f runs the command forward-char
+   C-g runs the command keyboard-quit
+   C-h RET runs the command view-order-manuals
+   C-i TAB runs the command indent-for-tab-command
+   C-j runs the command electric-newline-and-maybe-indent
+   C-k runs the command kill-line
+   C-l runs the command recenter-top-bottom
+   C-m RET runs the command newline
+   C-n runs the command next-line
+   C-o runs the command open-line
+   C-p runs the command previous-line
+   C-q runs the command quoted-insert
+   C-r runs the command isearch-backward
+   C-s runs the command isearch-forward
+   C-t runs the command transpose-chars
+   C-u runs the command universal-argument
+   C-v runs the command scroll-up-command
+   C-w runs the command kill-region
+   C-x prefix to other command
+   C-y runs the comand yank
+   C-z runs the command suspend-frame
+13.C-g is the way to quit a partially typed command
+   or a numeric argument that you don't want
+   C-g stops the command in a relatively safe way
+   During execution of Lisp code, this character causes
+   a quit directly.
+   At top-level, as an editor command. this simply beeps.
+   C-h k C-g
+14.yank is an interactive compiled Lisp
+   Reinsert("paste") the last stretch of killed text.
+   More precisely, reinsert the most recent kill, which is the
+   stretch of killed text most recently killed OR yanked.  Put point
+   at the end, and set mark at the beginning without activating it.
+   With just C-u as argument, put point at beginning, and mark at end.
+   With argument N, reinsert the Nth most recent kill.
+   C-h f yank
+15.  
+
+
